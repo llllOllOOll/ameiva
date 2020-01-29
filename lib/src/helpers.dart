@@ -1,40 +1,30 @@
-import 'dart:async';
-import 'dart:html';
+// This is an exemplo de factory by using an function to create objects.
 
-CanvasRenderingContext2D context2D;
-var frameRate = 30;
-
-run(void f()) {
-  loop(f);
+class Image {
+  String type;
+  Image(this.type);
 }
 
-loop(void f()) {
-  var timeFrame = 1000 ~/ frameRate;
-  Timer.periodic(Duration(microseconds: timeFrame), (timer) {
-    f();
-  });
+class JPGImage extends Image {
+  JPGImage(String type) : super(type);
 }
 
-createCanvas([width, height, Map<String, String> attributes]) {
-  width ??= 300;
-  height ??= 150;
+class GIFImage extends Image {
+  GIFImage(String type) : super(type);
+}
 
-  attributes ??= {'id': 'game', 'class': 'main'};
+class PNGImage extends Image {
+  PNGImage(String type) : super(type);
+}
 
-  final CanvasElement canvasElement = CanvasElement();
-  context2D = canvasElement.context2D;
+Image createImage(String type) {
+  var supportedImages = <String, Image>{
+    'jpg': JPGImage(type),
+    'png': PNGImage(type),
+    'gif': GIFImage(type),
+  };
 
-  attributes.forEach((key, value) {
-    canvasElement.setAttribute('${key}', '${value}');
-  });
-
-  canvasElement.width = width;
-  canvasElement.height = height;
-
-  document.body.innerHtml = '';
-  document.body.append(canvasElement);
-
-  return context2D;
+  return supportedImages[type];
 }
 
 // createCanvas([width, height, Map<String, String> attributes]) {

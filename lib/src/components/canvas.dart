@@ -1,34 +1,34 @@
 import 'dart:html';
 
 class Canvas {
-  CanvasElement canvas;
+  int canvasWidth;
+  int canvasHeight;
+  
+  Map canvasAttributes;
+  CanvasElement canvasInstance;
 
-  static CanvasRenderingContext2D context2D;
-  static CanvasElement canvasInstance;
+  Canvas([this.canvasWidth, this.canvasHeight, this.canvasAttributes]) {
+    _createCanvas();
+  }
 
-  createCanvas([int width, int height, Map attributes]) {
-    width ??= 300;
-    height ??= 150;
+  _createCanvas() {
+    canvasWidth ??= 300;
+    canvasHeight ??= 150;
 
-    attributes ??= {'id': 'screen', 'class': 'main'};
+    canvasAttributes ??= {'id': 'screen', 'class': 'main'};
 
-    canvas = CanvasElement(width: width, height: height);
-    canvasInstance = canvas;
-    canvas.context2D;
-    attributes.forEach((name, value) {
-      canvas.setAttribute(name, value);
+    canvasInstance = CanvasElement(width: canvasWidth, height: canvasHeight);
+
+    canvasAttributes.forEach((name, value) {
+      canvasInstance.setAttribute(name, value);
     });
 
+    canvasInstance.context2D;
+
     document.body.innerHtml = '';
-    document.body.append(canvas);
-    context2D = canvas.context2D;
-  }
 
-  getContext2D() {
-    return context2D;
-  }
+    document.body.append(canvasInstance);
 
-  getCanvasIntance() {
     return canvasInstance;
   }
 }

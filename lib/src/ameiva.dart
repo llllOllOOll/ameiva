@@ -1,22 +1,27 @@
 import 'dart:async';
 import 'dart:html';
 
-import 'package:ameiva/src/api/keyboard.dart';
+import '../ameiva.dart';
 
-import '../../ameiva.dart';
-
-enum Shape { rectangle, ellipse, line, circle }
-//CanvasElement canvasIntance = Canvas().getCanvasIntance();
-
-class Ameiva extends Canvas {
+class Ameiva {
   final int frameRate = 30;
   Function updateReference;
 
-  Keyboard keyboard = Keyboard();
+  Canvas canvas;
+  Shape shape;
+  Keyboard keyboard;
 
   var input = {'x': 0, 'y': 0};
 
-  draw(Shape shape, void f()) {}
+  Ameiva(canvasWidth, canvasHeight) {
+    this.canvas = Canvas(canvasWidth, canvasHeight);
+    this.shape = Shape(this.canvas);
+    this.keyboard = Keyboard();
+  }
+
+  update(void f()) {
+    updateReference = f;
+  }
 
   renderScreen(void f()) => loop(f);
 
@@ -24,19 +29,18 @@ class Ameiva extends Canvas {
     var timeFrame = 1000 ~/ frameRate;
     Timer.periodic(Duration(microseconds: timeFrame), (timer) {
       checkInput();
-      updateReference();
-      clearScreen(color: 'black');
+      
+      updateReference == null ? null:   updateReference();
+
+      shape.clearScreen(color: 'black');
       f();
     });
   }
 
-  update(void f()) {
-    updateReference = f;
-  }
 
   checkInput() {
     if (keyboard.isPressed(KeyCode.RIGHT)) {
-      if (input['x'] < canvasIntance.width - 50) {
+      if (input['x'] < canvas.canvasInstance.width - 50) {
         input['x'] += 1;
       }
       return;
@@ -57,7 +61,7 @@ class Ameiva extends Canvas {
     }
 
     if (keyboard.isPressed(KeyCode.DOWN)) {
-      if (input['y'] < canvasIntance.height - 50) {
+      if (input['y'] < canvas.canvasInstance.height - 50) {
         input['y'] += 1;
       }
       return;
