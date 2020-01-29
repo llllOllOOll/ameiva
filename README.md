@@ -1,14 +1,20 @@
 # Ameiva Lib
 
-A new Flutter package project.
+Ameiva is a Canvas Lib wrote in Dart Language.
 
-## Getting Started
+## Respect
+We respect everybody. We don't take for granted that you should know something previously, so feel free to ask questions about things you didn't understand, for this is also a great contribution which will surelly make us review our code and conceptions.
 
-This project is a starting point for a Dart
-[package](https://flutter.dev/developing-packages/),
-a library module containing code that can be shared easily across
-multiple Flutter or Dart projects.
 
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.dev/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+## Issues
+Please post bugs in the correct [Issues](https://github.com/ravencodde/ameiva/issues) repository.
+
+
+## Get Involved
+FalingStars is a collaborative project created by two individuals, but open to everyone. You are now invited to help. All types of involvement are welcome: Documentation, both code and English language review, good discussions, etc...
+
+Developers, please check out the [Roadmap](https://github.com/ravencodde/ameiva/blob/master/Documents/ROADMAP.md) for more in-depth details about contributing code, our philosofy, bug fixes, etc...
+
+
+## Contributors
+We DO recognize all types of contributions. This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Instructions to add yourself or add contribution emojis to your name are to come...
