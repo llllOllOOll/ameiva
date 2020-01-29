@@ -1,7 +1,8 @@
 import 'dart:html';
 import 'dart:math';
 
-import '../../ameiva.dart';
+import 'canvas.dart';
+
 
 class Shape {
   Canvas canvas;

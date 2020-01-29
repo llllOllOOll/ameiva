@@ -1,39 +1,3 @@
-## Canvas 2D Lib for Dart
-
-<<<<<<< HEAD
-Ameiva is a Canvas Lib wrote in Dart Language.
-
-## Respect
-We respect everybody. We don't take for granted that you should know something previously, so feel free to ask questions about things you didn't understand, for this is also a great contribution which will surelly make us review our code and conceptions.
-
-
-## Issues
-Please post bugs in the correct [Issues](https://github.com/ravencodde/ameiva/issues) repository.
-
-
-## Get Involved
-FalingStars is a collaborative project created by two individuals, but open to everyone. You are now invited to help. All types of involvement are welcome: Documentation, both code and English language review, good discussions, etc...
-
-Developers, please check out the [Roadmap](https://github.com/ravencodde/ameiva/blob/master/Documents/ROADMAP.md) for more in-depth details about contributing code, our philosofy, bug fixes, etc...
-
-
-## Contributors
-We DO recognize all types of contributions. This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Instructions to add yourself or add contribution emojis to your name are to come...
-=======
-[![Build Status](https://travis-ci.org/ravencodde/ameiva.svg?branch=master)][(https://travis-ci.org/dart-lang/shelf))
-
-## Introduction
-
-**Ameiva** makes it easy to create html5 / canvas animation. How?
-
-* Expose a small set of simple types.
-* You don't be care about game loop and keyboard input.
-
-## Example
-
-See `example/mainJulia.dart`
-
-```dart
 import 'package:ameiva/ameiva.dart' as ameiva;
 
 void main() => julia();
@@ -168,10 +132,3 @@ void julia() {
   });
 
 }
-
-```
-
-## Inspiration
-
-Learn how to create a lib in Dart Language.
->>>>>>> development

@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'dart:html';
 
-import '../ameiva.dart';
+import 'components/canvas.dart';
+import 'components/shapes.dart';
+import 'keyboard.dart';
 
-class Ameiva {
+class Setup {
   final int frameRate = 30;
   Function updateReference;
 
@@ -13,7 +15,7 @@ class Ameiva {
 
   var input = {'x': 0, 'y': 0};
 
-  Ameiva(canvasWidth, canvasHeight) {
+  Setup(canvasWidth, canvasHeight) {
     this.canvas = Canvas(canvasWidth, canvasHeight);
     this.shape = Shape(this.canvas);
     this.keyboard = Keyboard();
