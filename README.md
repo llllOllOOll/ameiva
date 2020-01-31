@@ -1,6 +1,5 @@
 ## Ameiva **Lib**
 
-[![Build Status](https://travis-ci.org/ravencodde/ameiva.svg?branch=master)][(https://travis-ci.org/dart-lang/shelf))
 
 ## Introduction
 
@@ -88,7 +87,6 @@ Developers, please check out the [Roadmap](https://github.com/ravencodde/ameiva/
 ## Contributors
 We DO recognize all types of contributions. This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Instructions to add yourself or add contribution emojis to your name are to come...
 
-[![Build Status](https://travis-ci.org/ravencodde/ameiva.svg?branch=master)]
 
 
 ## Inspiration
