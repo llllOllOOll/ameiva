@@ -15,7 +15,7 @@
 
 See FallingStars at `example/main.dart` 
 
-![alt FallingStars](https://github.com/ameiva/blob/master/fallingstars.png)
+![alt FallingStars](https://github.com/ravencodde/ameiva/blob/master/fallingstars.png?raw=true)
 
 
 
