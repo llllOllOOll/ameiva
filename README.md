@@ -1,3 +1,7 @@
+## Ameiva **Lib**
+
+[![Build Status](https://travis-ci.org/ravencodde/ameiva.svg?branch=master)][(https://travis-ci.org/dart-lang/shelf))
+
 ## Introduction
 
 **Ameiva**  is a Canvas Lib wwrote in Dart Language.
@@ -9,141 +13,63 @@
 
 ## Example
 
-See `example/mainJulia.dart`
+See FallingStars at `example/main.dart` 
+
+![alt FallingStars](https://github.com/ameiva/blob/master/fallingstars.png)
+
+
 
 ```dart
+  
 import 'package:ameiva/ameiva.dart' as ameiva;
 
-void main() => julia();
+import 'src/fallingstar.dart';
+import 'src/helpers.dart';
 
-void julia() {
+void main() => fallingStars();
 
-  final stage = ameiva.Setup(400, 400);
+void fallingStars() {
 
-  var y = 0;
-  var x = 200;
+  final stage = ameiva.Setup(400,400);
 
-  var rectanglePositionX = 200;
-  var rectanglePositionY = 200;
+  List<FallingStar> fallingStarsData = List.generate(100, (_)=> FallingStar(getRandomNumber, 400,100));
+ 
 
-  stage.update(() {
-    rectanglePositionX = stage.input['x'];
-    rectanglePositionY = stage.input['y'];
+  stage.update((){
 
-    y = y - 1;
-    y < 0 ? y = 400 : null;
+    for (var fallingStar in fallingStarsData) {
 
-    x = x + 1;
-    x > 400 ? x = 0 : null;
-  });
+      if(fallingStar.x < 0 || fallingStar.y > 400){
 
-  var face = {
-    'ellipses': [
-      //Head
-      {
-        'x': 200,
-        'y': 200,
-        'radius': 140,
-        'startAngle': 0,
-        'endAngle': 360,
-        'lineColor': 'lavenderblush',
-        'fillColor': 'darkindianred',
-      },
-      {
-        'x': 150,
-        'y': 150,
-        'radius': 40,
-        'startAngle': 0,
-        'endAngle': 180,
-        'lineColor': 'lavenderblush',
-        'fillColor': 'lightsalmon',
-      },
-      {
-        'x': 150,
-        'y': 150,
-        'radius': 30,
-        'startAngle': 0,
-        'endAngle': 360,
-        'lineColor': 'lavenderblush',
-        'fillColor': 'lightsalmon',
-      },
-      {
-        'x': 250,
-        'y': 150,
-        'radius': 40,
-        'startAngle': 0,
-        'endAngle': 180,
-        'lineColor': 'lavenderblush',
-        'fillColor': 'lightsalmon',
-      },
-      {
-        'x': 250,
-        'y': 150,
-        'radius': 30,
-        'startAngle': 0,
-        'endAngle': 360,
-        'lineColor': 'lavenderblush',
-        'fillColor': 'lightsalmon',
-      },
-      {
-        'x': 200,
-        'y': 260,
-        'radius': 40,
-        'startAngle': 0,
-        'endAngle': 180,
-        'lineColor': 'lavenderblush',
-        'fillColor': 'coral',
-      },
-      {
-        'x': 200,
-        'y': 200,
-        'radius': 20,
-        'startAngle': 0,
-        'endAngle': 360,
-        'lineColor': 'mistyrose',
-        'fillColor': 'lightsalmon'
-      },
-      {
-        'x': 170,
-        'y': 150,
-        'radius': 10,
-        'startAngle': 0,
-        'endAngle': 360,
-        'lineColor': 'mistyrose',
-        'fillColor': 'lightsalmon',
-      },
-      {
-        'x': 270,
-        'y': 150,
-        'radius': 10,
-        'startAngle': 0,
-        'endAngle': 360,
-        'lineColor': 'mintyrose',
-        'fillColor': 'ligthsalmon',
-      },
-    ]
-  };
+            fallingStar.x = getRandomNumber(0, 400);
+            fallingStar.y = getRandomNumber(0, 100);
+            fallingStar.timeToFall  = getRandomNumber(1, 7500);
+      }
+      
+      if (fallingStar.timeToFall != 0) {
 
-  var anticlockwise = false;
+            fallingStar.timeToFall -= 1;
 
-  stage.renderScreen(() {
-    
-    face['ellipses'].forEach((field) {
-    
-      stage.shape.ellipse(field['x'], field['y'], field['radius'],
-          field['startAngle'], field['endAngle'],
-          fillColor: field['fillColor'],
-          lineColor: field['lineColor'],
-          anticlockwise: anticlockwise);
+      } else {
 
-    });
-    
-    stage.shape.line(0, y, 400, y, );
-    stage.shape.line( x, 0, x, 400, );
+            fallingStar.x  += 1 * fallingStar.directionToFall;
+            fallingStar.y += fallingStar.velocityToFall;
 
-    stage.shape.rectangle(rectanglePositionX, rectanglePositionY, 50, 50, 'gray');
+      }
+
+    }
 
   });
+
+  stage.renderScreen((){
+
+        for (var fallingStar in fallingStarsData) {
+
+          stage.shape.ellipse( fallingStar.x, fallingStar.y, fallingStar.diameter, 0, 360, lineColor: fallingStar.color );
+          
+        }
+
+  });   
 
 }
 
