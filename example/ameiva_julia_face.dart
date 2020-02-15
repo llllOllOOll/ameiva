@@ -1,26 +1,25 @@
 import 'package:ameiva/ameiva.dart' as ameiva;
 
-void main() => julia();
-
 void julia() {
+  final stage = ameiva.Setup(720, 400);
 
-  final stage = ameiva.Setup(400, 400);
-
-  var y = 0;
-  var x = 200;
+  var y = 100;
+  //var x = 200;
 
   var rectanglePositionX = 200;
   var rectanglePositionY = 200;
+
+  stage.input['speed'] = 10;
 
   stage.update(() {
     rectanglePositionX = stage.input['x'];
     rectanglePositionY = stage.input['y'];
 
-    y = y - 1;
+    y = y - 10;
     y < 0 ? y = 400 : null;
 
-    x = x + 1;
-    x > 400 ? x = 0 : null;
+    // x = x + 10;
+    // x > 400 ? x = 0 : null;
   });
 
   var face = {
@@ -110,25 +109,20 @@ void julia() {
     ]
   };
 
-  var anticlockwise = false;
+  var anticlockwise = true;
 
   stage.renderScreen(() {
-    
     face['ellipses'].forEach((field) {
-    
       stage.shape.ellipse(field['x'], field['y'], field['radius'],
           field['startAngle'], field['endAngle'],
           fillColor: field['fillColor'],
           lineColor: field['lineColor'],
           anticlockwise: anticlockwise);
-
     });
-    
-    stage.shape.line(0, y, 400, y, );
-    stage.shape.line( x, 0, x, 400, );
 
-    stage.shape.rectangle(rectanglePositionX, rectanglePositionY, 50, 50, 'gray');
-
+    stage.shape.rectangle(rectanglePositionX, rectanglePositionY, 32, 32,
+        color: 'gray');
+    stage.shape.line(0, y, 720, y, color: 'red');
+    //stage.shape.line( x, 0, x, 400, );
   });
-
 }
