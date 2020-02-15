@@ -3,7 +3,6 @@ import 'dart:math';
 
 import 'canvas.dart';
 
-
 class Shape {
   Canvas canvas;
   CanvasRenderingContext2D context2D;
@@ -11,7 +10,7 @@ class Shape {
   Shape(this.canvas) {
     this.context2D = canvas.canvasInstance.context2D;
   }
-  rectangle(x, y, width, height, [color]) {
+  rectangle(x, y, width, height, {color}) {
     color ??= 'yellow';
 
     context2D.beginPath();
