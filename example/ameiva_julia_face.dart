@@ -1,9 +1,6 @@
 import 'package:ameiva/ameiva.dart' as ameiva;
 
-void main() => julia();
-
 void julia() {
-
   final stage = ameiva.Setup(400, 400);
 
   var y = 0;
@@ -113,22 +110,28 @@ void julia() {
   var anticlockwise = false;
 
   stage.renderScreen(() {
-    
     face['ellipses'].forEach((field) {
-    
       stage.shape.ellipse(field['x'], field['y'], field['radius'],
           field['startAngle'], field['endAngle'],
           fillColor: field['fillColor'],
           lineColor: field['lineColor'],
           anticlockwise: anticlockwise);
-
     });
-    
-    stage.shape.line(0, y, 400, y, );
-    stage.shape.line( x, 0, x, 400, );
 
-    stage.shape.rectangle(rectanglePositionX, rectanglePositionY, 50, 50, 'gray');
+    stage.shape.line(
+      0,
+      y,
+      400,
+      y,
+    );
+    stage.shape.line(
+      x,
+      0,
+      x,
+      400,
+    );
 
+    stage.shape
+        .rectangle(rectanglePositionX, rectanglePositionY, 50, 50, 'gray');
   });
-
 }
