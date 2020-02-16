@@ -6,14 +6,6 @@
  * 
  *
  * Math for game developers
- * 
- * 
- * 
- * 
- *
- * 
- *
- * 
  */
 
 // How to use vector to move objects on games and animation.
