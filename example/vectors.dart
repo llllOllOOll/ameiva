@@ -34,7 +34,7 @@ var context2D = canvas.context2D;
 
 // Define a start Point for our box, x and y.
 // Our velocity and direction will be set by a vector, boxVelocity, x and y.
-// x positive thes head is to the RIGTH, negativa to the LEFT
+// x positive the head is to the RIGTH, negativa to the LEFT
 // the value inside x detemine the velocity.
 var boxPosition = Point(0, 0);
 var boxVelocity = Vector(3, 1);
@@ -86,7 +86,9 @@ draw() {
 
 class Vector {
   num x, y;
-  Vector(this.x, this.y);
+  Vector([this.x, this.y]);
+
+  String toString() => 'Vector($x, $y)';
 }
 
 class Point {
@@ -116,6 +118,17 @@ class Point {
   }
 }
 
+// Subtracting two points / vectors
+// return a new vector with a result of the subtract.
+Vector subPoints(Point a, Point b) {
+  var v = Vector(); // Create a new vector in memory.
+
+  v.x = a.x - b.x;
+  v.y = a.y - b.y;
+
+  return v;
+}
+
 void vectorSetup() {
   document.body.append(canvas);
 
@@ -123,6 +136,9 @@ void vectorSetup() {
     ..setAttribute('width', '400')
     ..setAttribute('style', 'border: solid red')
     ..setAttribute('height', '400');
+
+  var vector = subPoints(Point(0, -1), Point(1, 1));
+  print(vector);
 
   run();
 }
