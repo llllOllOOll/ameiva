@@ -27,7 +27,7 @@
 
 import 'dart:html';
 
-// Create a Canvas and added it to the DOM  and get 2D context
+// Create a Canvas and add it to the DOM  and get 2D context
 // ths we will use their methods to draw on canvas.
 var canvas = CanvasElement();
 var context2D = canvas.context2D;
