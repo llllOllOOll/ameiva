@@ -16,7 +16,6 @@
 //
 // We can invert a vector in the simple way, where is head becames tail and tail becames head
 // To do that  in programming we just add -1  to the vector.
-
 import 'dart:html';
 
 // Create a Canvas and add it to the DOM  and get 2D context
