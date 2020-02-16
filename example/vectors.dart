@@ -110,8 +110,8 @@ class Point {
   }
 }
 
-// Subtracting two points / vectors
-// return a new vector with a result of the subtract.
+// Subtracts two points and returns the vector.
+// with the result of the subtraction
 Vector subPoints(Point a, Point b) {
   var v = Vector(); // Create a new vector in memory.
 
