@@ -1,11 +1,15 @@
-import 'dart:math' as math;
-
-final math.Random _rnd = math.Random();
-int getRandomNumber(int min, int max) => min + _rnd.nextInt(max - min);
-
 class Vector {
   num x, y;
   Vector([this.x, this.y]);
+
+  // Vector operator *(delta) {
+  //   Vector v = Vector();
+
+  //   v.x = x * delta;
+  //   v.y = y * delta;
+
+  //   return v;
+  // }
 
   String toString() => 'Vector($x, $y)';
 }
