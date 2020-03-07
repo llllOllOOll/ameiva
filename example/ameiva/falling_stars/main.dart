@@ -1,7 +1,7 @@
 import 'package:ameiva/ameiva.dart' as ameiva;
 
-import 'falling_stars/fallingstar.dart';
-import 'falling_stars/helpers.dart';
+import 'fallingstar.dart';
+import 'helpers.dart';
 
 void fallingStars() {
   final stage = ameiva.Setup(400, 400);
